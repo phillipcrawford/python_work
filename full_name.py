@@ -1,3 +1,6 @@
+# By Phillip Crawford
+# demonstrate use of format strings
+# demonstrate use of methods title and upper 
 first_name = "ada"
 last_name = "lovelace"
 full_name = f"{first_name} {last_name}" #f strings, mean format strings
