@@ -1,0 +1,26 @@
+#make use of many of the methods learned about list manipulation
+rivers = ["nile", 'amazon', "mississippi", "gallatin", 'madison']
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.append('jefferson')
+rivers.insert(0, "missouri")
+print(f"Here are {len(rivers)} rivers: {rivers}")
+del rivers[6]
+print(f"Here are {len(rivers)} rivers: {rivers}")
+popped_river = rivers.pop()
+print(popped_river)
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.pop(0)
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.remove("mississippi")
+print(f"Here are {len(rivers)} rivers: {rivers}")
+print(f"Here are {len(rivers)} rivers: {sorted(rivers)}")
+print(f"Here are {len(rivers)} rivers: {sorted(rivers, reverse=True)}")
+rivers.sort()
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.sort(reverse= True)
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.reverse()
+print(f"Here are {len(rivers)} rivers: {rivers}")
+rivers.reverse()
+print(f"Here are {len(rivers)} rivers: {rivers}")
+
