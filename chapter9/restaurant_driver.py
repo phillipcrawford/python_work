@@ -1,4 +1,5 @@
 import restaurant
+
 new_restaurant = restaurant.Restaurant('faralitos', 'mexican')
 print(new_restaurant.name)
 print(new_restaurant.type)

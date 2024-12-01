@@ -1,5 +1,3 @@
-
-
 class Restaurant:
     """A simple attempt to represent a restaurant."""
 
