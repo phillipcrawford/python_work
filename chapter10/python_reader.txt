@@ -1,9 +1,9 @@
-Strings
-If else
-I understand "self" now
-composition
-dictionaries
-lists
-tuples
-standard libraries
-pep8
+In python I learned about Strings
+In python I learned about If else
+In python I learned about I understand "self" now
+In python I learned about composition
+In python I learned about dictionaries
+In python I learned about lists
+In python I learned about tuples
+In python I learned about standard libraries
+In python I learned about pep8
