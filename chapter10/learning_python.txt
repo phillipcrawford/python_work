@@ -1,0 +1,9 @@
+Strings
+If else
+I understand "self" now
+composition
+dictionaries
+lists
+tuples
+standard libraries
+pep8
