@@ -20,6 +20,7 @@ def read_user():
             print(f'Your {key} is {values}')
     else:
         write_user()
+        
 def greet_user():
     if path.exists():
         read_user()
