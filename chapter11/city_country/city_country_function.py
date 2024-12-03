@@ -1,4 +1,13 @@
-def city_country(city, country, population):
+def city_country(city, country, population=''):
     """Generate a neatly formatted location name"""
-    location = f"{city}, {country} - population {population}"
-    return location.title()    
+    if population:
+        if country == 'USA':
+            location = f"{city.title()}, {country} - population {population}"
+        else:
+            location = f"{city.title()}, {country.title()} - population {population}"
+    else:
+        if country == 'USA':
+            location = f"{city.title()}, {country}"
+        else: 
+            location = f"{city.title()}, {country.title()}"
+    return location
