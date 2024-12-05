@@ -32,9 +32,9 @@ class Rocket:
             self.x += self.settings.rocket_speed
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.rocket_speed
-        if self.moving_up:
+        if self.moving_up and self.rect.top > 0:
             self.y -= self.settings.rocket_speed
-        if self.moving_down:
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.rocket_speed
 
         # Update rect object from self.x.
