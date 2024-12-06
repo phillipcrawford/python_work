@@ -78,7 +78,7 @@ class AlienInvasion:
         self.bullets.update()
         # Get rid of bullets that have passed the top of screen
         for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
+            if bullet.rect.left > self.screen.get_rect().width:
                 self.bullets.remove(bullet)        
 
 
