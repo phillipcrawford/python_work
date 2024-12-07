@@ -90,7 +90,7 @@ class AlienInvasion:
         # Create an alien and keep adding aliens untile there's no room left.
         # Spacing between aliens is one alien width and one alien height.
         alien = Alien(self)
-        alien_width, alien_height = alien.rect.width, alien.rect.height
+        alien_width, alien_height = alien.rect.size
 
         current_x, current_y = alien_width, alien_height
         while current_y < (self.settings.screen_height - 3 * alien_height):    
