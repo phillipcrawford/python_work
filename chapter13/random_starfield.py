@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from star import Star
+from random import randint
 
 class Starfield:
     """Overall class to manage game assets and behavior."""
@@ -54,7 +55,9 @@ class Starfield:
         current_x, current_y = star_width, star_height
         while current_y < (self.settings.screen_height - star_height):    
             while current_x < (self.settings.screen_width - 2 * star_width):
-                self._create_star(current_x, current_y)
+                random_number = randint(0,1)
+                if random_number == 1:
+                    self._create_star(current_x, current_y)
                 current_x += 2 * star_width
 
             # Finished a row; reset x value, and increment y value.
