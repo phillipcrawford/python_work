@@ -12,7 +12,6 @@ class Starfield:
         """Initialize the game, and create game resources."""
         pygame.init()
 
-        self.clock = pygame.time.Clock()
         self.settings = Settings()
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
@@ -31,9 +30,6 @@ class Starfield:
             
             # Redraw the screen during each pass through the loop.
             self._update_screen()
-
-            # 60 frames per second
-            self.clock.tick(60)
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""
