@@ -29,8 +29,6 @@ class Starfield:
             # Watch for keyboard and mouse events.
             self._check_events()
             
-            self._update_bullets()
-
             # Redraw the screen during each pass through the loop.
             self._update_screen()
 
@@ -78,11 +76,7 @@ class Starfield:
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
-        for bullet in self.bullets.sprites():
-            bullet.draw_bullet()
-        self.ship.blitme()
-        self.aliens.draw(self.screen)
-        #self.gnu.blitme()
+        self.stars.draw(self.screen)
 
         pygame.display.flip()
                     
