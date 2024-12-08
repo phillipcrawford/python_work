@@ -4,7 +4,6 @@ import pygame
 
 from settings import Settings
 from star import Star
-#from gnu import Gnu
 
 class Starfield:
     """Overall class to manage game assets and behavior."""
@@ -18,13 +17,11 @@ class Starfield:
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
-        pygame.display.set_caption("Alien Invasion")
-        self.ship = Ship(self)
-        self.bullets = pygame.sprite.Group()
-        self.aliens = pygame.sprite.Group()
+        pygame.display.set_caption("Starfield")
+        self.stars = pygame.sprite.Group()
         #self.gnu = Gnu(self)
 
-        self._create_fleet()
+        self._create_stars()
 
     def run_game(self):
         """Start the main loop for the game."""
