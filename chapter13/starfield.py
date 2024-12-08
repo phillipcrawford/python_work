@@ -3,12 +3,10 @@ import sys
 import pygame
 
 from settings import Settings
-from ship import Ship
-from bullet import Bullet
-from alien import Alien
+from star import Star
 #from gnu import Gnu
 
-class AlienInvasion:
+class Starfield:
     """Overall class to manage game assets and behavior."""
 
     def __init__(self):
@@ -123,5 +121,5 @@ class AlienInvasion:
                     
 if __name__ == '__main__':
     # Make a game instance and run the game.
-    ai = AlienInvasion()
-    ai.run_game()
+    sf = Starfield()
+    sf.run_game()
