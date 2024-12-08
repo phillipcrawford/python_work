@@ -29,7 +29,6 @@ class Starfield:
             # Watch for keyboard and mouse events.
             self._check_events()
             
-            self.ship.update()
             self._update_bullets()
 
             # Redraw the screen during each pass through the loop.
@@ -45,59 +44,30 @@ class Starfield:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
-            elif event.type == pygame.KEYUP:
-                self._check_keyup_events(event)
 
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
-        elif event.key == pygame.K_q:
-            sys.exit()
-        elif event.key == pygame.K_SPACE:
-            self._fire_bullet()
-
-    def _check_keyup_events(self, event):
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = False
-
-    def _fire_bullet(self):
-        """Create a new bullet and add it to the bullets group."""
-        if len(self.bullets) < self.settings.bullets_allowed:
-            new_bullet = Bullet(self)
-            self.bullets.add(new_bullet)
-
-    def _update_bullets(self):
-        """Update position of bullets and get rid of old."""
-        # Update bullet position.
-        self.bullets.update()
-        # Get rid of bullets that have passed the top of screen
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
-                self.bullets.remove(bullet)        
+        if event.key == pygame.K_q:
+            sys.exit()        
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and keep adding aliens untile there's no room left.
         # Spacing between aliens is one alien width and one alien height.
-        alien = Alien(self)
-        alien_width, alien_height = alien.rect.size
+        star = Star(self)
+        star_width, star_height = star.rect.size
 
-        current_x, current_y = alien_width, alien_height
-        while current_y < (self.settings.screen_height - 3 * alien_height):    
-            while current_x < (self.settings.screen_width - 2 * alien_width):
-                self._create_alien(current_x, current_y)
-                current_x += 2 * alien_width
+        current_x, current_y = star_width, star_height
+        while current_y < (self.settings.screen_height - 3 * star_height):    
+            while current_x < (self.settings.screen_width - 2 * star_width):
+                self._create_star(current_x, current_y)
+                current_x += 2 * star_width
 
             # Finished a row; reset x value, and increment y value.
-            current_x = alien_width
-            current_y += 2 * alien_height
+            current_x = star_width
+            current_y += 2 * star_height
 
-    def _create_alien(self, x_position, y_position):
+    def _create_star(self, x_position, y_position):
         """Create an alien and place it in the row."""
         new_alien = Alien(self)
         new_alien.x = x_position
