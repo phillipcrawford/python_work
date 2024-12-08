@@ -50,7 +50,7 @@ class Starfield:
         if event.key == pygame.K_q:
             sys.exit()        
 
-    def _create_fleet(self):
+    def _create_stars(self):
         """Create the fleet of aliens."""
         # Create an alien and keep adding aliens untile there's no room left.
         # Spacing between aliens is one alien width and one alien height.
@@ -69,11 +69,11 @@ class Starfield:
 
     def _create_star(self, x_position, y_position):
         """Create an alien and place it in the row."""
-        new_alien = Alien(self)
-        new_alien.x = x_position
-        new_alien.rect.x = x_position
-        new_alien.rect.y = y_position
-        self.aliens.add(new_alien)
+        new_star = Star(self)
+        new_star.x = x_position
+        new_star.rect.x = x_position
+        new_star.rect.y = y_position
+        self.stars.add(new_star)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
