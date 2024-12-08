@@ -52,7 +52,7 @@ class Starfield:
         star_width, star_height = star.rect.size
 
         current_x, current_y = star_width, star_height
-        while current_y < (self.settings.screen_height - 3 * star_height):    
+        while current_y < (self.settings.screen_height - star_height):    
             while current_x < (self.settings.screen_width - 2 * star_width):
                 self._create_star(current_x, current_y)
                 current_x += 2 * star_width
