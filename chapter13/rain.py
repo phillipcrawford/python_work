@@ -67,11 +67,11 @@ class Rain:
 
     def _create_drop(self, x_position, y_position):
         """Create an alien and place it in the row."""
-        new_alien = Drop(self)
-        new_alien.x = x_position
-        new_alien.rect.x = x_position
-        new_alien.rect.y = y_position
-        self.rain.add(new_alien)
+        new_drop = Drop(self)
+        new_drop.x = x_position
+        new_drop.rect.x = x_position
+        new_drop.rect.y = y_position
+        self.rain.add(new_drop)
 
 #    def _check_fleet_edges(self):
  #       """Respond appropriately if any aliens have reached an edge."""
