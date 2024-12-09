@@ -31,16 +31,11 @@ class AlienInvasion:
     def run_game(self):
         """Start the main loop for the game."""
         while True:
-            # Watch for keyboard and mouse events.
-            self._check_events()
-            
+            self._check_events()  
             self.ship.update()
             self._update_bullets()
-
-            # Redraw the screen during each pass through the loop.
+            self._update_aliens()
             self._update_screen()
-
-            # 60 frames per second
             self.clock.tick(60)
 
     def _check_events(self):
@@ -85,6 +80,10 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)        
 
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
+        
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and keep adding aliens untile there's no room left.
