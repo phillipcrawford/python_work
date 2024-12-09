@@ -1,5 +1,4 @@
 import sys
-
 import pygame
 
 from settings import Settings
@@ -83,7 +82,7 @@ class AlienInvasion:
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet."""
         self.aliens.update()
-        
+
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and keep adding aliens untile there's no room left.
