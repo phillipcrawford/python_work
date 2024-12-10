@@ -10,4 +10,4 @@ class Settings:
 
         # Drop settings
         #self.drop_speed = 1.0
-        self.drop_speed = 10
+        self.drop_speed = 3.0

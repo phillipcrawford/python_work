@@ -68,7 +68,7 @@ class Rain:
     def _create_drop(self, x_position, y_position):
         """Create an alien and place it in the row."""
         new_drop = Drop(self)
-        new_drop.x = x_position
+        new_drop.y = y_position
         new_drop.rect.x = x_position
         new_drop.rect.y = y_position
         self.rain.add(new_drop)

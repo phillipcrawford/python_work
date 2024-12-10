@@ -8,6 +8,7 @@ class Drop(Sprite):
         """Initialize the alien and set its starting position."""
         super().__init__()
         self.screen = rain_driver.screen
+        self.settings = rain_driver.settings
 
         # Load the alien image and set its rect attribute.
         self.image = pygame.image.load('images/drop.bmp')
@@ -18,4 +19,9 @@ class Drop(Sprite):
         self.rect.y = self.rect.height
 
         # Store the alien's exact horizontal position.
-        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
+    
+    def update(self):
+        """Move the drop to the bottom."""
+        self.y += self.settings.drop_speed
+        self.rect.y = self.y
