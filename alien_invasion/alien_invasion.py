@@ -140,7 +140,6 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
-        #self.gnu.blitme()
 
         pygame.display.flip()
                     
