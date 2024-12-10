@@ -4,6 +4,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -20,21 +21,18 @@ class AlienInvasion:
         pygame.display.set_caption("Sideways")
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
-        #self.gnu = Gnu(self)
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
 
     def run_game(self):
         """Start the main loop for the game."""
         while True:
-            # Watch for keyboard and mouse events.
             self._check_events()
-            
             self.ship.update()
             self._update_bullets()
-
-            # Redraw the screen during each pass through the loop.
+            self._update_aliens()
             self._update_screen()
-
-            # 60 frames per second
             self.clock.tick(60)
 
     def _check_events(self):
@@ -77,8 +75,9 @@ class AlienInvasion:
         # Get rid of bullets that have passed the top of screen
         for bullet in self.bullets.copy():
             if bullet.rect.left > self.screen.get_rect().width:
-                self.bullets.remove(bullet)        
+                self.bullets.remove(bullet)
 
+        self._check_bullet_alien_collisions()        
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
