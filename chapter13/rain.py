@@ -45,7 +45,7 @@ class Rain:
 
     def _update_drops(self):
         """Update the positions of all aliens in the fleet."""
-        # self._check_fleet_edges()
+        self._check_rain_edges()
         self.rain.update()
 
     def _create_drops(self):
@@ -73,18 +73,24 @@ class Rain:
         new_drop.rect.y = y_position
         self.rain.add(new_drop)
 
-#    def _check_fleet_edges(self):
- #       """Respond appropriately if any aliens have reached an edge."""
-  #      for alien in self.aliens.sprites():
-   #         if alien.check_edges():
-    #            self._change_fleet_direction()
-     #           break
+    def _check_rain_edges(self):
+        """Respond appropriately if any drops have reached an edge."""
+        for drop in self.rain.sprites().copy():
+            if drop.rect.bottom >= self.screen.get_rect().height:
+                self._make_new_drop_row()
+                self.rain.remove(drop) 
 
-#    def _change_fleet_direction(self):
- #       """Drop the entire fleet and change fleet's direction"""
-  #      for alien in self.aliens.sprites():
-   #         alien.rect.y += self.settings.fleet_drop_speed
-    #    self.settings.fleet_direction *= -1
+    def _make_new_drop_row(self):
+        """Drop the entire fleet and change fleet's direction"""
+        #for drop in self.rain.sprites():
+
+        drop = Drop(self)
+        drop_width, drop_height = drop.rect.size
+
+        current_x, current_y = drop_width, drop_height
+        while current_x < (self.settings.screen_width - 2 * drop_width):
+            self._create_drop(current_x, current_y)
+            current_x += 2 * drop_width
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
