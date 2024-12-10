@@ -27,5 +27,5 @@ class Drop(Sprite):
         self.rect.y = self.y
 
     def check_edges(self):
-        """Return True if alien is at the edge of screen."""
+        """Return True if drop is at the bottom of screen."""
         return (self.rect.top >= self.screen.get_rect().bottom)

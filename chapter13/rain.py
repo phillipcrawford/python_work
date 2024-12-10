@@ -43,11 +43,6 @@ class Rain:
         if event.key == pygame.K_q:
             sys.exit()      
 
-    def _update_drops(self):
-        """Update the positions of all aliens in the fleet."""
-        self._check_rain_edges()
-        self.rain.update()
-
     def _create_drops(self):
         """Create the fleet of aliens."""
         # Create an alien and keep adding aliens untile there's no room left.
@@ -73,13 +68,6 @@ class Rain:
         new_drop.rect.y = y_position
         self.rain.add(new_drop)
 
-    def _check_rain_edges(self):
-        """Respond appropriately if any drops have reached an edge."""
-        for drop in self.rain.sprites().copy():
-            if drop.rect.bottom >= self.screen.get_rect().height:
-                self._make_new_drop_row()
-                self.rain.remove(drop) 
-
     def _make_new_drop_row(self):
         """Drop the entire fleet and change fleet's direction"""
         #for drop in self.rain.sprites():
@@ -91,6 +79,22 @@ class Rain:
         while current_x < (self.settings.screen_width - 2 * drop_width):
             self._create_drop(current_x, current_y)
             current_x += 2 * drop_width
+
+    def _update_drops(self):
+        """Update the positions of all aliens in the fleet."""
+        self._check_rain_edges()
+        self.rain.update()
+
+    def _check_rain_edges(self):
+        """Respond appropriately if any drops have reached an edge."""
+        make_new_drops = False
+        for drop in self.rain.sprites().copy():
+            if drop.rect.bottom >= self.screen.get_rect().height:
+                self.rain.remove(drop) 
+                make_new_drops = True
+
+        if make_new_drops:
+            self._make_new_drop_row()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
