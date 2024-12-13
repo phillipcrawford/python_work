@@ -18,6 +18,6 @@ class Topping(models.Model):
     class Meta:
         verbose_name_plural = 'toppings'
 
-    def _str__(self):
+    def __str__(self):
         """Return a string representation of the model."""
         return f"{self.name[:50]}"
