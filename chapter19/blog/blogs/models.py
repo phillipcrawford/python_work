@@ -12,7 +12,7 @@ class Blog(models.Model):
     
 class BlogPost(models.Model):
     """Individual psot."""
-    blog = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
